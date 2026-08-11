@@ -63,6 +63,7 @@ import rating_starts from './rating_starts.png'
 import remove_icon_red from './remove_icon_red.png'
 import selector_icon from './selector_icon.png'
 import twitter_icon from './twitter_icon.png'
+import admin_logo from './admin_logo.png'
 
 
 
@@ -85,7 +86,8 @@ export const assets ={
     parcel_icon,
     bag_icon,
     play_store,
-    logout_icon
+    logout_icon,
+    admin_logo
 
 }
 
