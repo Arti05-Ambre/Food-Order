@@ -5,7 +5,7 @@ const Navbar = () => {
   const [menu,setMenu] = useState("menu"); 
   return (
     <div className='navbar'>
-      <img src={assets.logo} alt="" classname="logo"/>
+      <img src={assets.logo} alt="" className="logo"/>
       <ul className="navbar-menu">
         <li className={menu==="home"?"active":""}>home</li>
         <li className={menu==="menu"?"active":""}>menu</li>
@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="navbar-right">
          <img src={assets.search_icon} alt=""/>
          <div className="navbar-search-icon">
-           <img src={assets.basket_icon} alt="" classname="logo"/>
+           <img src={assets.basket_icon} alt="" className="logo"/>
            <div className="dot"></div>
            
          </div>
