@@ -124,6 +124,31 @@ export const menu_list = [
     {
         menu_name:"Noodles",
        menu_image:menu_8
-    }
-]
+    }]
+    export const food_list = [
+        {
+            _id:"1",
+            name:" Greek Salad",
+            image:food_1,
+            food_price:12,
+            description:"Food provides essential nutrients for overall health and well-being.",
+            category:"Salad"
+        },
+        {
+            _id:"2",
+            name:"Greek Salad",
+            image:food_2,
+            food_price:18,
+            description:"Food provides essential nutrients for overall health and well-being.",
+            category:"Salad"
+        },
+        {
+            _id:"3",
+            name:"Caesar Salad",
+            image:food_3,
+            food_price:20,
+            description:"Food provides essential nutrients for overall health and well-being.",
+            category:"Salad"
+        }
+    ]
 export const url = 'http://localhost:5173'
