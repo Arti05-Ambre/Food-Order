@@ -180,6 +180,7 @@ export const menu_list = [
             image:food_7,
             price:20,
             description:"Food provides essential nutrients for overall health and well-being.", 
+            category:"Rolls"
         },
         {
             _id:"8",
@@ -210,7 +211,8 @@ export const menu_list = [
             name:"Jar Ice Cream",
             image:food_11,
             price:10,
-            description:"Food provides essential nutrients for overall health and well-being.",      
+            description:"Food provides essential nutrients for overall health and well-being.", 
+            category:"Deserts"     
         },
         {
             _id:"12",
@@ -290,7 +292,7 @@ export const menu_list = [
             image:food_21,
             price:14,
             description:"Food provides essential nutrients for overall health and well-being.",
-            category:"Pasta"
+            category:"Pure Veg"
         },
         {
             _id:"22",
@@ -298,7 +300,7 @@ export const menu_list = [
             image:food_22,
             price:22,
             description:"Food provides essential nutrients for overall health and well-being.",
-            category:"Pasta"
+            category:"Pure Veg"
         },
         {
             _id:"23",
@@ -306,7 +308,7 @@ export const menu_list = [
             image:food_23,
             price:10,
             description:"Food provides essential nutrients for overall health and well-being.",
-            category:"Pasta"
+            category:"Pure Veg"
         },
         {
             _id:"24",
@@ -314,7 +316,7 @@ export const menu_list = [
             image:food_24,
             price:18,
             description:"Food provides essential nutrients for overall health and well-being.",
-            category:"Pasta"
+            category:"Pure Veg"
         },
         {
             _id:"25",
