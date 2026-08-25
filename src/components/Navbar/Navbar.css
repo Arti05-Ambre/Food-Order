@@ -41,10 +41,10 @@
 .navbar li{
     cursor: pointer; 
 }
-.navbar-serach-icon{
+.navbar-search-icon{
     position: relative;
 }
-.navbar-serach-icon .dot{
+.navbar-search-icon .dot{
     position: absolute;
     min-height: 10px;
     min-width: 10px;
