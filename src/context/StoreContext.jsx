@@ -7,7 +7,7 @@ const StoreProvider = (props) => {
 
   const [cartItems, setCartItems] = useState({});  
 
-  const addToCart = (itemId) => {
+  const addToCart = (itemId) => { 
     if (!cartItems[itemId]) {
       setCartItems((prev) => ({...prev,[itemId]:1}))
     }  
