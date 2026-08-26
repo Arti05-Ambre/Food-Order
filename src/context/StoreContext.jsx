@@ -6,7 +6,7 @@ export const StoreContext = createContext(null)
 const StoreProvider = (props) => {
 
   const [cartItems, setCartItems] = useState({});  
-
+ 
   const addToCart = (itemId) => { 
     if (!cartItems[itemId]) {
       setCartItems((prev) => ({...prev,[itemId]:1}))
