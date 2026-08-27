@@ -3,8 +3,8 @@ import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom';
 
-const Navbar = (setShowLogin) => {
-  const [menu, setMenu] = useState('menu')
+const Navbar = ({setShowLogin}) => {
+  const [menu, setMenu] = useState('menu');
 
   return (
     <div className='navbar'>
@@ -16,10 +16,8 @@ const Navbar = (setShowLogin) => {
         <Link
           to='/'
           onClick={() => setMenu('home')}
-          className={menu === 'home' ? 'active' : ''}
-        >
-          home
-        </Link>
+          className={menu === 'home' ? 'active' : ''}>home</Link>
+        
 
         <a
           href='#explore-menu'
@@ -62,6 +60,8 @@ const Navbar = (setShowLogin) => {
         <button onClick={()=>setShowLogin(true)}>sign in</button>
 
       </div>
+      
+
 
     </div>
   )
