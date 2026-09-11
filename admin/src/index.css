@@ -20,3 +20,8 @@ min-height: 100vh;
   height: 1px;
   background-color: #a9a9a9;
  }
+ .app-content{
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+ }
