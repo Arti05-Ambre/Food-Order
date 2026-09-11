@@ -22,6 +22,4 @@ min-height: 100vh;
  }
  .app-content{
   display: flex;
-  gap: 20px;
-  padding: 20px;
  }
