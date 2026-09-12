@@ -14,8 +14,6 @@ const List = () => {
 
     const response = await axios.get(`${url}/api/food/list`)
 
-    console.log(response.data)
-
     if (response.data.success) {
 
       setList(response.data.data);
@@ -25,6 +23,11 @@ const List = () => {
       toast.error("Error")
 
     }
+  }
+
+  const removeFood = async(foodId)=>{
+    console.log(foodID);
+
   }
 
   useEffect(() => {
@@ -49,7 +52,7 @@ const List = () => {
       <p>{item.name}</p>
       <p>{item.category}</p>
       <p>${item.price}</p>
-      <p>X</p>
+      <p onClick={()=>removefood(item._id)}className='Cursor '>X</p>
       </div>
 
     )
