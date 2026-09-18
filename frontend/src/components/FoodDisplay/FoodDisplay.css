@@ -1,14 +1,32 @@
+
 .food-display {
     margin-top: 30px;
 }
+
 .food-display h2 {
-    font-size: max(2vw,24px);
+    font-size: max(2vw, 24px);
     font-weight: 600;
 }
+
 .food-display-list {
     display: grid;
-    grid-template-columns: repeat(4 , 1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin-top: 30px;
     gap: 30px;
     row-gap: 50px;
+}
+
+/* Screen कमी केल्यावर */
+@media (max-width: 900px) {
+    .food-display-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .food-display-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
 }
