@@ -1,3 +1,4 @@
+
 import React, { useState, useContext } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
@@ -6,8 +7,7 @@ import { StoreContext } from '../../context/StoreContext'
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home")
-
-  const { getTotalCartAmount, token, setToken } = useContext(StoreContext)
+  const { getTotalCartAmount, token } = useContext(StoreContext)
 
   return (
     <div className='navbar'>
@@ -64,23 +64,12 @@ const Navbar = ({ setShowLogin }) => {
           <div className={getTotalCartAmount() === 0 ? '' : 'dot'}></div>
         </div>
 
-        {!token ? (
-          <button onClick={() => setShowLogin(true)}>
-            sign in
-          </button>
-        ) : (
-          <div className='navbar-profile'>
-
-            <img src={assets.profile_icon} alt='' />
-
-            <ul className='nav-profile-dropdown'>
-
-              <li>
-                <img src={assets.bag_icon} alt='' />
-                <p>Orders</p>
-              </li>
-
-              <hr />
+        {!token?<button onClick={() => setShowLogin(true)}> sign in</button>
+        :<div className='navbar-profile'>
+          <img src={assets.profile_icon} alt='' />
+          <ul className='nav-profile-dropdown'>
+            <li><img src={assets.bag_icon} alt='' /><p>Orders</p></li>
+             <hr />
 
               <li>
                 <img src={assets.logout_icon} alt='' />
@@ -89,8 +78,7 @@ const Navbar = ({ setShowLogin }) => {
 
             </ul>
 
-          </div>
-        )}
+          </div>}
 
       </div>
 
@@ -99,4 +87,3 @@ const Navbar = ({ setShowLogin }) => {
 }
 
 export default Navbar
-
