@@ -1,15 +1,18 @@
+import { UNSAFE_getTurboStreamSingleFetchDataStrategy } from 'react-router-dom'
 import { createContext, useEffect, useState } from 'react'
-import { food_list } from '../assets/assets.js'
+import axios from 'axios'
 
 export const StoreContext = createContext(null)
 
 const StoreProvider = (props) => {
 
   const [cartItems, setCartItems] = useState({})
-const url= "http://localhost:4000"
-const[token,setToken] = useState("");
+  const [token, setToken] = useState("")
+  const [food_list, setFoodList] = useState([])
 
+  const url = "http://localhost:4000"
 
+  // Add item to cart
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {
       setCartItems((prev) => ({
@@ -24,38 +27,86 @@ const[token,setToken] = useState("");
     }
   }
 
+  // Remove item from cart
   const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
+    setCartItems((prev) => ({
+      ...prev,
+      [itemId]: prev[itemId] - 1
+    }))
   }
+
+  // Calculate total cart amount
   const getTotalCartAmount = () => {
-    let totalAmount = 0;
+    let totalAmount = 0
+
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        let itemInfo = food_list.find((product) => product._id === item)
-        totalAmount += cartItems[item] * itemInfo.price;
+
+        const itemInfo = food_list.find(
+          (product) => product._id === item
+        )
+
+        if (itemInfo) {
+          totalAmount += cartItems[item] * itemInfo.price
+        }
       }
     }
-    return totalAmount;
+
+    return totalAmount
   }
 
+  // Fetch food list from backend
+  const fetchFoodList = async () => {
+    try {
+      const response = await axios.get(
+        url + "/api/food/list"
+      )
 
-      const contextValue = {
-        food_list,
-        cartItems,
-        setCartItems,
-        addToCart,
-        removeFromCart,
-        getTotalCartAmount,
-        url,
-        token,
-        setToken
+      setFoodList(response.data.data)
+
+    } catch (error) {
+      console.log("Error fetching food list:", error)
+    }
+  }
+
+  // Load food list and token
+  useEffect(() => {
+
+    const loadData = async () => {
+
+      await fetchFoodList()
+
+      const savedToken = localStorage.getItem("token")
+
+      if (savedToken) {
+        setToken(savedToken)
       }
 
-      return (
-        <StoreContext.Provider value={contextValue}>
-          {props.children}
-        </StoreContext.Provider>
-      )
     }
 
-    export default StoreProvider
+    loadData()
+
+  }, [])
+
+  // Context values
+  const contextValue = {
+    food_list,
+    cartItems,
+    setCartItems,
+    addToCart,
+    removeFromCart,
+    getTotalCartAmount,
+    url,
+    token,
+    setToken
+  }
+
+  return (
+    <StoreContext.Provider value={contextValue}>
+      {props.children}
+    </StoreContext.Provider>
+  )
+}
+
+export default StoreProvider
+
