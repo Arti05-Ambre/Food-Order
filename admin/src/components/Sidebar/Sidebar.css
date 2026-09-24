@@ -22,7 +22,6 @@
     padding: 8px 10px;
     border-radius: 3px 0px 0px 3px;
     cursor: pointer;
-
 }
 .sidebar-option.active{
     background-color: #fff0ed;
@@ -33,4 +32,16 @@
         display: none;
     }
 }
-
+@media (max-width:600px){
+    .sidebar {
+        width: 72px;
+    }
+    .sidebar-options {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .sidebar-option {
+        justify-content: center;
+        padding: 10px 8px;
+    }
+}

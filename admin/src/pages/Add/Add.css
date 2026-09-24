@@ -4,11 +4,9 @@
     margin-top: 50px;
     color: #6d6d6d;
     font-size: 16px;
-
 }
 .add form{
     gap: 20px;
-
 }
 .add-img-upload img{
     width: 120px;
@@ -35,5 +33,25 @@
     background-color: black;
     color: white;
     cursor: pointer;
+}
 
+@media (max-width: 900px) {
+    .add {
+        width: calc(100% - 32px);
+        margin: 32px auto 0;
+        font-size: 14px;
+    }
+    .add-product-name, .add-product-description {
+        width: 100%;
+        max-width: 100%;
+    }
+    .add-category-price {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .add-category-price select,
+    .add-category-price input {
+        max-width: none;
+        width: 100%;
+    }
 }
