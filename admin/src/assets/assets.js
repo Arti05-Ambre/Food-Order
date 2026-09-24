@@ -6,6 +6,9 @@ import profile_icon from './profile_icon.png';
 import upload_area from './upload_area.png';
 import parcel_icon from './parcel_icon.png';
 
+export const url = "https://food-order-backend-4e0u.onrender.com"
+export const Currency = "rup"
+
 export const assets= {
     admin_logo,
     add_icon,
