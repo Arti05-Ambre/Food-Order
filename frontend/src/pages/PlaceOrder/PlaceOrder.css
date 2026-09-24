@@ -33,7 +33,6 @@
 .place-order-left .multi-fields{
     display: flex;
     gap: 10px;
-
 }
 .place-order-right{
     width:100%;
@@ -66,4 +65,29 @@
 .payment-method input {
     margin-right: 10px;
     accent-color: tomato;
+}
+
+@media (max-width: 900px) {
+    .place-order {
+        flex-direction: column;
+    }
+    .place-order-left,
+    .place-order-right {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .place-order {
+        margin-top: 60px;
+        gap: 24px;
+    }
+    .place-order-left .multi-fields {
+        flex-direction: column;
+    }
+    .place-order-left .title {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
 }

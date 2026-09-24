@@ -8,7 +8,7 @@
 }
 .login-popup-container{
     place-self:center;
-    width:max(23vw,330px);
+    width:min(90vw, 420px);
     color:#808080;
     background-color: white;
     display: flex;
@@ -68,3 +68,9 @@
     font-weight: 500;
     cursor: pointer;
  }
+
+@media (max-width: 520px) {
+    .login-popup-container {
+        padding: 20px 18px;
+    }
+}

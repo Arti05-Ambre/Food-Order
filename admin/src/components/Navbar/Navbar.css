@@ -3,11 +3,24 @@
     align-items: center;
     justify-content: space-between;
     padding: 8px 4%;
+    gap: 12px;
 }
 .navbar .logo{
     width: max(80px, 10%);
+    flex-shrink: 0;
 }
 .navbar .profile{
     width: 40px;
+}
 
+@media (max-width: 600px) {
+    .navbar {
+        padding: 12px 16px;
+    }
+    .navbar .logo {
+        width: 70px;
+    }
+    .navbar .profile {
+        width: 32px;
+    }
 }
