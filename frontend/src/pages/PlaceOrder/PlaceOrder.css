@@ -42,3 +42,28 @@
 .place-order .cart-total button{
     margin-top: 30px;
 }
+.payment-method {
+    margin-bottom: 30px;
+}
+
+.payment-method h2 {
+    margin-bottom: 15px;
+}
+
+.payment-method label {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.payment-method label:hover {
+    border-color: tomato;
+}
+
+.payment-method input {
+    margin-right: 10px;
+    accent-color: tomato;
+}
