@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Sidebar from './components/Sidebar/Sidebar'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Orders from './pages/Orders/Orders'
 import List from './pages/List/List'
 import Add from './pages/Add/Add'
@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
 
-const url="http://localhost:4000"
+  const url = "http://localhost:4000";
 
   return (
     <div>
@@ -22,16 +22,16 @@ const url="http://localhost:4000"
 
       <div className="app-content">
         <Sidebar />
-url={url}
+
         <Routes>
+          <Route path="/" element={<Navigate to="/list" />} />
           <Route path="/add" element={<Add url={url}/>} />
           <Route path="/list" element={<List url={url}/>} />
-          <Route path="/Orders" element={<Orders url={url}/>} />
+          <Route path="/orders" element={<Orders url={url}/>} />
         </Routes>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
-
+export default App;

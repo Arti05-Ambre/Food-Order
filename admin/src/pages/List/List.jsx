@@ -1,50 +1,33 @@
-
 import React, { useEffect, useState } from "react";
 import "./List.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const List = (url) => {
-  
+const List = ({ url }) => {
   const [list, setList] = useState([]);
 
   // Fetch food list
   const fetchList = async () => {
-    try {
-      const response = await axios.get(`${url}/api/food/list`);
+    const response = await axios.get(`${url}/api/food/list`);
 
-      if (response.data.success) {
-        setList(response.data.data);
-      } else {
-        toast.error("Error fetching food list");
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong");
+    if (response.data.success) {
+      setList(response.data.data);
+    } else {
+      toast.error("Error");
     }
   };
 
   // Remove food
   const removeFood = async (foodId) => {
-    try {
-      const response = await axios.post(
-        `${url}/api/food/remove`,
-        {
-          id: foodId,
-        }
-      );
+    const response = await axios.post(`${url}/api/food/remove`, {
+      id: foodId,
+    });
 
-      if (response.data.success) {
-        toast.success(response.data.message);
-
-        // Refresh list after deleting
-        await fetchList();
-      } else {
-        toast.error("Error removing food");
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong");
+    if (response.data.success) {
+      toast.success(response.data.message);
+      await fetchList();
+    } else {
+      toast.error("Error removing food");
     }
   };
 
@@ -58,8 +41,6 @@ const List = (url) => {
       <p>All Foods List</p>
 
       <div className="list-table">
-
-        {/* Table Header */}
         <div className="list-table-format">
           <b>Image</b>
           <b>Name</b>
@@ -68,20 +49,16 @@ const List = (url) => {
           <b>Action</b>
         </div>
 
-        {/* Food List */}
         {list.map((item, index) => {
           return (
             <div key={index} className="list-table-format">
-
               <img
                 src={`${url}/images/${item.image}`}
                 alt={item.name}
               />
 
               <p>{item.name}</p>
-
               <p>{item.category}</p>
-
               <p>${item.price}</p>
 
               <p
@@ -90,15 +67,12 @@ const List = (url) => {
               >
                 X
               </p>
-
             </div>
           );
         })}
-
       </div>
     </div>
   );
 };
 
 export default List;
-
